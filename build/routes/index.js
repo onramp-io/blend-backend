@@ -4,13 +4,12 @@ exports.router = void 0;
 const express_1 = require("express");
 const router = (0, express_1.Router)();
 exports.router = router;
+const appHandler = require("../handlers/appHandler");
 //Basic ping/pong endpoint to test server functionality
-router.get('/ping', (req, res) => {
-    res.send('pong');
-});
+router.get('/ping', appHandler.pingHandler);
 /**************** USER API INTERFACE BEGIN ****************/
 router.route('/api/users/new');
-/*.post()*/ //Add new user
+/*.post(appHandler.addNewUser)*/ //Add new user
 //Request Body: JSON object containing user data to be added, should match USER DB model
 router.route('/api/users/user/:id');
 /*.get()*/ //Get specified user
